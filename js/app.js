@@ -1,6 +1,6 @@
 // Mapbox access token (added to environment vars for security)
 const MAPBOX_ACCESS_TOKEN = process.env.MAPBOX_TOKEN;
-MAPBOX_TOKEN=""
+
 // Default map center (San Francisco)
 const DEFAULT_CENTER = [-74.0060, 40.7128];
 const DEFAULT_ZOOM = 12;
