@@ -1,0 +1,12 @@
+# macOS system files
+.DS_Store
+
+# Editor files
+.vscode/
+.idea/
+
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
