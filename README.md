@@ -34,36 +34,41 @@ This web application allows users to visualize travel times from a selected loca
 
 ### Installation
 
-1. Clone or download this repository
-2. Add your Mapbox token to your environment variables:
-
-   **macOS/Linux:**
-   ```bash
-   export MAPBOX_TOKEN="your_mapbox_token_here"
-   ```
-
-   **Windows:**
-   ```
-   setx MAPBOX_TOKEN "your_mapbox_token_here"
-   ```
-
-   **Alternative:** For quick testing, you can modify the code to use your token directly:
-   ```javascript
-   // In js/app.js, replace this line:
-   const MAPBOX_ACCESS_TOKEN = process.env.MAPBOX_TOKEN;
-   
-   // With:
-   const MAPBOX_ACCESS_TOKEN = 'your_mapbox_token_here'; // Replace with your actual token
-   ```
-   ⚠️ Note: Don't commit this change if your code is public.
-
-3. Open `index.html` in your web browser, or host the files on a web server
+- Clone or download this repository
+- Install dependencies:
+  ```bash
+  npm install
+  ```
+- Create a `.env` file in the project root (ignored by Git) with:
+  ```bash
+  MAPBOX_TOKEN="your_mapbox_token_here"
+  ```
+- For local development, install Vercel CLI and run:
+  ```bash
+  npm install -g vercel
+  vercel dev
+  ```
 
 ### Getting a Mapbox Token
 
 1. Sign up for a free account at [mapbox.com](https://www.mapbox.com/)
 2. Navigate to your account page
 3. Copy your default public token or create a new one
+
+## Local Development
+
+After installing dependencies and creating your `.env` file, run the development server:
+```bash
+vercel dev
+``` 
+This will serve static files and API endpoints locally.
+
+## Deployment to Vercel
+
+1. Push your code to a public or private GitHub repository.
+2. Sign in to Vercel (https://vercel.com/) and import your GitHub repo.
+3. In your Vercel project settings, add an environment variable named `MAPBOX_TOKEN` with your token.
+4. Deploy. Vercel will automatically detect the `api` folder and serve your token endpoint securely.
 
 ## Technology Stack
 

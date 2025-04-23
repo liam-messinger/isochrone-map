@@ -1,5 +1,5 @@
-// Mapbox access token (added to environment vars for security)
-const MAPBOX_ACCESS_TOKEN = process.env.MAPBOX_TOKEN;
+// Mapbox access token (loaded from serverless API)
+let MAPBOX_ACCESS_TOKEN;
 
 // Default map center (San Francisco)
 const DEFAULT_CENTER = [-74.0060, 40.7128];
@@ -15,7 +15,18 @@ let outlinesOnly = false; // Whether to show only outlines
 let gradientLayers = [];
 
 // Initialize map when the page loads
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        // Get Mapbox token securely from serverless API
+        const response = await fetch('/api/mapbox-token');
+        if (!response.ok) throw new Error(`Token fetch failed: ${response.status}`);
+        const data = await response.json();
+        MAPBOX_ACCESS_TOKEN = data.token;
+    } catch (err) {
+        console.error('Error retrieving Mapbox token:', err);
+        alert('Failed to load Mapbox token. Check console for details.');
+        return;
+    }
     initializeMap();
     setupEventListeners();
 });

@@ -1,0 +1,20 @@
+{
+  "name": "isochrone-map",
+  "version": "1.0.0",
+  "description": "This web application allows users to visualize travel times from a selected location to surrounding areas using isochrones (contour lines of equal travel time).",
+  "main": "api/mapbox-token.js",
+  "scripts": {
+    "vercel-dev": "vercel dev",
+    "start": "npm run vercel-dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.5.0"
+  },
+  "devDependencies": {
+    "vercel": "^41.6.2"
+  }
+}
