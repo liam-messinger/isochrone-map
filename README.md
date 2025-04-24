@@ -31,6 +31,7 @@ This web application allows users to visualize travel times from a selected loca
 
 - A Mapbox account and API access token (free tier available)
 - A modern web browser
+- Node.js and npm installed on your machine
 
 ### Installation
 
@@ -43,11 +44,6 @@ This web application allows users to visualize travel times from a selected loca
   ```bash
   MAPBOX_TOKEN="your_mapbox_token_here"
   ```
-- For local development, install Vercel CLI and run:
-  ```bash
-  npm install -g vercel
-  vercel dev
-  ```
 
 ### Getting a Mapbox Token
 
@@ -57,18 +53,33 @@ This web application allows users to visualize travel times from a selected loca
 
 ## Local Development
 
-After installing dependencies and creating your `.env` file, run the development server:
+After installing dependencies and creating your `.env` file, you can run the application locally:
+
 ```bash
-vercel dev
+npm start
 ``` 
-This will serve static files and API endpoints locally.
 
-## Deployment to Vercel
+This will serve the application on a local development server (typically at http://localhost:3000).
 
-1. Push your code to a public or private GitHub repository.
-2. Sign in to Vercel (https://vercel.com/) and import your GitHub repo.
-3. In your Vercel project settings, add an environment variable named `MAPBOX_TOKEN` with your token.
-4. Deploy. Vercel will automatically detect the `api` folder and serve your token endpoint securely.
+Alternatively, you can use any static file server of your choice to serve the application files.
+
+## Deployment Options
+
+You can deploy this application on any hosting platform that supports static websites:
+
+1. Build the application (if needed):
+  ```bash
+  npm run build
+  ```
+
+2. Upload the resulting files to your preferred hosting service:
+  - GitHub Pages
+  - Netlify
+  - Vercel
+  - AWS S3
+  - Any traditional web hosting
+
+When deploying, make sure to set up your MAPBOX_TOKEN as an environment variable on your hosting platform or update the token retrieval method to suit your deployment environment.
 
 ## Technology Stack
 
